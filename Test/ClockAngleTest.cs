@@ -33,10 +33,31 @@ namespace ClockAngle
     public void ClockAngleFind_hourMinusMinutes_true()
     {
       Clock newClock = new Clock(1, 24);
-      float hours = newClock.minuteToHourMovement() + newClock.hourToMinute();
-      float expectedResult = 7;
+      float expectedResult = -17;
 
       float result = newClock.hourMinusMinutes();
+
+      Assert.Equal(result, expectedResult);
+    }
+    [Fact]
+    public void ClockAngleFind_minutesToDegrees_true()
+    {
+      Clock newClock = new Clock(1, 24);
+      float expectedResult = 102;
+
+      float result = newClock.minutesToDegrees();
+
+      Assert.Equal(result, expectedResult);
+    }
+    [Fact]
+    public void ClockAngleFind_testOver180_true()
+    {
+      Clock newClock = new Clock(11, 15);
+      float expectedResult = 112.5F;
+
+      float result = newClock.testFor180();
+
+      Assert.Equal(result, expectedResult);
     }
   }
 }
